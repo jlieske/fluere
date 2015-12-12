@@ -1,0 +1,22 @@
+# Project excludes
+ScreenSaverEngine.app
+
+# Xcode excludes
+Build/*
+*.pbxuser
+*.mode1
+*.mode1v3
+*.mode2v3
+*.xcworkspace
+*.xcodeproj/xcuserdata
+*~
+
+# Mac excludes
+.DS_Store
+
+# VC excludes
+.svn
+CVS
+
+# More excludes
+.#*
