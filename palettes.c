@@ -211,29 +211,25 @@ void get_colortable(
   
   if (stripes)
     nsteps *= 2;  
-    
+  
   /* now, make the list of colors we'll use */
   rgbcolor colors[nsteps];
   rgbcolor black = {0,0,0};
   int ii;
   int cindx;
 
-  cindx = 0;
-  for (ii = 0; ii < nsteps; ii++)
+  for (cindx = 0, ii = 0; cindx < nsteps; ++cindx)
   {
-    if (randomize)
-      colors[cindx] = p->colors[random() % p->num_colors];
-    else
-      colors[cindx] = p->colors[ii];
-    
-    ++cindx;
-        
     /* alternate black between the original colors */
-    if (stripes)
-    {
+    if (stripes && cindx % 2)
       colors[cindx] = black;
-      ++cindx;
+    else if (randomize)
+      colors[cindx] = p->colors[random() % p->num_colors];
+    else {
+      colors[cindx] = p->colors[ii];
+      ++ii;
     }
+    
   }
 
   /* finally, actually fill in the colors in ctable by smoothly
