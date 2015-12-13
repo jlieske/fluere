@@ -76,7 +76,7 @@ palette_list_ptr init_palette_list( FILE *palfile )
     int jj;
 
     /* get the name and the number of colors */
-    fscanf(palfile, "%s", &pl->palettes[ii].name);  
+    fscanf(palfile, "%s", pl->palettes[ii].name);
     fscanf(palfile, "%d", &n_colors);
     pl->palettes[ii].num_colors = n_colors;
 
@@ -84,7 +84,7 @@ palette_list_ptr init_palette_list( FILE *palfile )
     pl->palettes[ii].colors = malloc(sizeof(rgbcolor) * n_colors);
     for (jj = 0; jj < n_colors; ++jj)
     {
-      unsigned long color;
+      unsigned int color;
       fscanf(palfile, "%x", &color);
       pl->palettes[ii].colors[jj].r = (color & 0xff0000) >> 16;
       pl->palettes[ii].colors[jj].g = (color & 0x00ff00) >> 8;

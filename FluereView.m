@@ -263,7 +263,8 @@
      (CFURLRef)outURL, (CFStringRef)@"public.png" , 1, NULL);
   CGImageDestinationAddImage(dr, fractalImage_, NULL);
   CGImageDestinationFinalize(dr);
-
+  CFRelease(dr);
+  [outURL release];
 }
 
 - (void) keyDown: (NSEvent*) theEvent

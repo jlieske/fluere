@@ -387,8 +387,8 @@ unsigned char get_leaf_value( fluere_drawing_ptr s, point where )
     double dx = where.x - s->knots[ii].x;
     double dy = where.y - s->knots[ii].y;
     
-    double big =   max( abs(dx), abs(dy) );
-    double small = min( abs(dx), abs(dy) );
+    double big =   max( fabs(dx), fabs(dy) );
+    double small = min( fabs(dx), fabs(dy) );
 
     double a;  
     if (big == 0)
@@ -423,8 +423,8 @@ unsigned char get_rays_value( fluere_drawing_ptr s, point where )
     double dx = where.x - s->knots[ii].x;
     double dy = where.y - s->knots[ii].y;
     
-    double big =   max( abs(dx), abs(dy) );
-    double small = min( abs(dx), abs(dy) );
+    double big =   max( fabs(dx), fabs(dy) );
+    double small = min( fabs(dx), fabs(dy) );
 
     double a;  
     if (big == 0)
